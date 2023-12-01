@@ -1,3 +1,35 @@
+CREATE TABLE "Contacts" (
+    "contact_id" varchar   NOT NULL,
+    "first_name" varchar   NOT NULL,
+    "last_name" varchar   NOT NULL,
+	"email" varchar   NOT NULL,
+    CONSTRAINT "pk_Contacts" PRIMARY KEY (
+        "contact_id"
+     )
+);
+
+DROP TABLE "Contacts"
+
+CREATE TABLE "Category" (
+    "category_id" varchar   NOT NULL,
+    "category" varchar   NOT NULL,
+    CONSTRAINT "pk_Category" PRIMARY KEY (
+        "category_id"
+     )
+);
+
+DROP TABLE "Category"
+
+CREATE TABLE "Subcategory" (
+    "subcategory_id" varchar   NOT NULL,
+    "subcategory" varchar   NOT NULL,
+    CONSTRAINT "pk_Subcategory" PRIMARY KEY (
+        "subcategory_id"
+     )
+);
+
+DROP TABLE "Subcategory"
+
 CREATE TABLE "Campaign" (
     "cf_id" varchar   NOT NULL,
     "contact_id" varchar   NOT NULL,
@@ -18,35 +50,7 @@ CREATE TABLE "Campaign" (
      )
 );
 
-DROP TABLE "Campaign";
-
-CREATE TABLE "Contacts" (
-    "email" varchar   NOT NULL,
-    "contact_id" varchar   NOT NULL,
-    "first_name" varchar   NOT NULL,
-    "last_name" varchar   NOT NULL,
-    CONSTRAINT "pk_Contacts" PRIMARY KEY (
-        "contact_id"
-     )
-);
-
-DROP TABLE "Contacts";
-
-CREATE TABLE "Category" (
-    "category_id" varchar   NOT NULL,
-    "category" varchar   NOT NULL,
-    CONSTRAINT "pk_Category" PRIMARY KEY (
-        "category_id"
-     )
-);
-
-CREATE TABLE "Subcategory" (
-    "subcategory_id" varchar   NOT NULL,
-    "subcategory" varchar   NOT NULL,
-    CONSTRAINT "pk_Subcategory" PRIMARY KEY (
-        "subcategory_id"
-     )
-);
+DROP TABLE "Campaign"
 
 ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "Contacts" ("contact_id");
